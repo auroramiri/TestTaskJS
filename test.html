@@ -1,0 +1,38 @@
+<p><input type="button" value="Изменение регистра" onclick="changeCase()"></p>
+<p><input type="button" value="Приветствие" onclick="sayHello()"></p>
+<p><input type="button" value="Массив строк" onclick="getArrayOfStrings()"></p>
+<script>
+function changeCase() {
+    let inputString = prompt('Введите строку', '');
+    function lowerCase(inputString){
+        return inputString.replace(/[A-ZА-Я]/g, u => u.toLowerCase());
+    }
+    function capitalize(inputString){
+        return inputString.replace(/^./, u => u.toUpperCase());
+    }
+alert(capitalize(lowerCase(inputString)));
+}
+function sayHello(){
+    const hasMark = /Mark/;
+    let nameOfUser = prompt('Введите Ваше имя', '');
+    if(hasMark.test(nameOfUser) == true)
+       {alert('Hi ' + nameOfUser)
+    } 
+        else {
+            alert('Hello '+ nameOfUser)
+        }
+}
+function getArrayOfStrings(){
+    let inputString = prompt('Введите массив строк через запятую', '');
+    let limit = prompt('Введите допустимую длину строки', 0);
+    let arrayOfStrings = inputString.split(',');
+    for (var i=0;i<arrayOfStrings.length;i++){
+        arrayOfStrings[i] = arrayOfStrings[i].trim()
+        arrayOfStrings[i] = arrayOfStrings[i].replace(/^"|"$/g, '');;
+        if(arrayOfStrings[i].length > limit){
+            arrayOfStrings.splice(i, 1);
+        }
+    }
+    alert (arrayOfStrings)
+}
+</script>
